@@ -10,6 +10,11 @@ import AdminRoute from "./authentication/AdminRoute";
 import Dashboard from "./pages/Dashboard/Dashboard";
 import AddAdmin from "./pages/Dashboard/AddAdmin";
 import AddService from "./pages/Dashboard/AddService";
+import Home from "./pages/Home/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Login from "./pages/Login";
+import Services from "./pages/Services";
 
 function App() {
   useEffect(() => {
@@ -18,7 +23,7 @@ function App() {
 
   return (
     <Navbar>
-      <Routes>
+      {/* <Routes>
         {publicRoute.map(({ path, Component }, index) => (
           <Route key={index} path={path} element={<Component />} />
         ))}
@@ -32,6 +37,30 @@ function App() {
             <Route path='add-admin' element={<AddAdmin />} />
             <Route path='add-service' element={<AddService />} />
           </Route>
+        </Route>
+      </Routes> */}
+
+      {/* Same as above but in a break down manners */}
+
+      <Routes>
+        {/* PublicRoutes */}
+
+        <Route path='/' element={<Home />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/login' element={<Login />} />
+
+        {/* Private Routes  */}
+
+        <Route element={<PrivateRoute />}>
+          <Route path='/services' element={<Services />} />
+          <Route path='/about' element={<About />} />
+        </Route>
+
+        <Route path='/dashboard' element={<Dashboard />}>
+          {/* root/dashboard/add-admin */}
+          <Route path='add-admin' element={<AddAdmin />} />
+          {/* root/dashboard/add-service */}
+          <Route path='add-service' element={<AddService />} />
         </Route>
       </Routes>
     </Navbar>

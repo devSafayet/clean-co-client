@@ -65,7 +65,7 @@ const Navbar = ({ children }) => {
               </li>
               {admin && (
                 <li>
-                  <NavLink to='/dashboard/add-service' className='rounded-lg'>
+                  <NavLink to='/dashboard' className='rounded-lg'>
                     Dashboard
                   </NavLink>
                 </li>
